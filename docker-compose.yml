@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16
+    container_name: travelplanner_db
+    environment:
+      POSTGRES_DB: travelplanner
+      POSTGRES_USER: tp_user
+      POSTGRES_PASSWORD: tp_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - tp_pgdata:/var/lib/postgresql/data
+
+volumes:
+  tp_pgdata:
