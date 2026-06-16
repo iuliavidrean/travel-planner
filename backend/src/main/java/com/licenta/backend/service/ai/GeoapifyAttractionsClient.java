@@ -198,7 +198,7 @@ public class GeoapifyAttractionsClient {
                     + "&lang=en"
                     + "&apiKey=" + encode(properties.getApiKey());
 
-            System.out.println("Geoapify places URL: " + url);
+            System.out.println("Geoapify places request prepared for categories: " + categories);
 
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(url))
@@ -285,7 +285,7 @@ public class GeoapifyAttractionsClient {
                     + "&lang=en"
                     + "&apiKey=" + encode(properties.getApiKey());
 
-            System.out.println("Geoapify geocode URL: " + url);
+            System.out.println("Geoapify geocode request prepared for city: " + city);
 
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(url))

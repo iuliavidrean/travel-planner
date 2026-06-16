@@ -17,7 +17,7 @@ public class AccommodationGeocodingService {
     private final HttpClient httpClient = HttpClient.newHttpClient();
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    // Caută coordonatele pentru o adresă text
+
     public GeocodingResult geocodeAddress(String address) {
         try {
             if (address == null || address.isBlank()) {

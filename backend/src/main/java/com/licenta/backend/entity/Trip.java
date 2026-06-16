@@ -38,8 +38,8 @@ public class Trip {
 
     public Trip() {}
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "owner_id") // momentan fără nullable=false ca să nu te lovești de DB
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner_id", nullable = false)
     @JsonIgnore
     private User owner;
 

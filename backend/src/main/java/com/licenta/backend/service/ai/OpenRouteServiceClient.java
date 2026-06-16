@@ -52,7 +52,7 @@ public class OpenRouteServiceClient {
                     + "&end=" + formatCoord(toLng) + "," + formatCoord(toLat);
 
             System.out.println("=== OPENROUTESERVICE CLIENT ===");
-            System.out.println("ORS route URL: " + url);
+            System.out.println("ORS route request prepared: mode=" + mode);
 
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(url))
@@ -71,7 +71,7 @@ public class OpenRouteServiceClient {
             System.out.println("ORS status: " + response.statusCode());
 
             if (response.statusCode() != 200) {
-                System.out.println("ORS body: " + response.body());
+                System.out.println("ORS request failed with status: " + response.statusCode());
                 throw new RuntimeException("OpenRouteService request failed with status " + response.statusCode());
             }
 

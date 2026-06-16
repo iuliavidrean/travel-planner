@@ -31,10 +31,8 @@ public class DistanceAgent {
             };
 
             System.out.println("DistanceAgent fallback used: mode=" + mode
-                    + " from=(" + fromLat + "," + fromLng + ")"
-                    + " to=(" + toLat + "," + toLng + ")"
-                    + " estimatedKm=" + km
-                    + " estimatedMin=" + durationMinutes);
+                    + ", estimatedKm=" + km
+                    + ", estimatedMin=" + durationMinutes);
 
             return new RouteInfo(
                     km,

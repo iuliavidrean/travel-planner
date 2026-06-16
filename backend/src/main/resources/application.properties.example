@@ -1,0 +1,30 @@
+spring.application.name=backend
+
+server.port=8080
+
+# Configurare baza de date PostgreSQL
+spring.datasource.url=jdbc:postgresql://localhost:5432/travelplanner
+spring.datasource.username=tp_user
+spring.datasource.password=tp_pass
+
+# Configurare Hibernate / JPA
+# Pentru rulare locală, schema bazei de date este creată/actualizată automat pe baza entităților JPA din backend.
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.open-in-view=false
+
+# Configurare JWT
+app.jwt.secret=CHANGE_ME_USE_A_LONG_RANDOM_SECRET
+app.jwt.expiration-seconds=86400
+
+# Configurare Geoapify
+geoapify.enabled=true
+geoapify.api-key=CHANGE_ME_GEOAPIFY_API_KEY
+geoapify.base-url=https://api.geoapify.com/v2
+geoapify.radius-meters=12000
+geoapify.limit=100
+
+# Configurare OpenRouteService
+openrouteservice.enabled=true
+openrouteservice.api-key=CHANGE_ME_OPENROUTESERVICE_API_KEY
+openrouteservice.base-url=https://api.openrouteservice.org
+openrouteservice.request-timeout-ms=8000

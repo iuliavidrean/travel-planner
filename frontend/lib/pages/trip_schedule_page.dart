@@ -15,6 +15,7 @@ import '../models/schedule_item_model.dart';
 import '../models/schedule_day_route_model.dart';
 
 import '../services/schedule_service.dart';
+import '../services/trip_service.dart';
 import '../services/session_service.dart';
 import 'home_page.dart';
 
@@ -428,9 +429,24 @@ class _TripSchedulePageState extends State<TripSchedulePage> {
   }
 
   Future<void> handleAddActivity() async {
-    final initialDay = scheduleDays.isNotEmpty
-        ? scheduleDays.first.day
-        : DateTime.now().toIso8601String().split('T').first;
+    String initialDay;
+
+    if (scheduleDays.isNotEmpty) {
+      initialDay = scheduleDays.first.day;
+    } else {
+      try {
+        final trip = await TripService.getTripById(widget.tripId);
+        initialDay = trip.startDate;
+      } catch (e) {
+        if (!mounted) return;
+
+        setState(() {
+          errorMessage = 'Failed to load trip dates.';
+        });
+
+        return;
+      }
+    }
 
     final result = await Navigator.of(context).push(
       MaterialPageRoute(
